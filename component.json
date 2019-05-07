@@ -1,0 +1,169 @@
+{
+    "title": "Azure SQL Database",
+    "description": "Provides create, read, update and delete functionality for Azure SQL Database resources including recommendations and operations.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/sql-sql.core/2014-04-01/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://management.azure.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "azure_auth": {
+                "label": "Azure Active Directory OAuth2 Flow",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "ServiceTierAdvisors_ListByDatabase": {
+            "main": "./lib/actions/ServiceTierAdvisors_ListByDatabase.js",
+            "title": "Returns service tier advisors for specified database.",
+            "description": "Returns service tier advisors for specified database.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ServiceTierAdvisors_ListByDatabase.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ServiceTierAdvisors_Get": {
+            "main": "./lib/actions/ServiceTierAdvisors_Get.js",
+            "title": "Gets a service tier advisor.",
+            "description": "Gets a service tier advisor.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ServiceTierAdvisors_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "TransparentDataEncryptions_Get": {
+            "main": "./lib/actions/TransparentDataEncryptions_Get.js",
+            "title": "Gets a database's transparent data encryption configuration.",
+            "description": "Gets a database's transparent data encryption configuration.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/TransparentDataEncryptions_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "TransparentDataEncryptions_CreateOrUpdate": {
+            "main": "./lib/actions/TransparentDataEncryptions_CreateOrUpdate.js",
+            "title": "Creates or updates a database's transparent data encryption configuration.",
+            "description": "Creates or updates a database's transparent data encryption configuration.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/TransparentDataEncryptions_CreateOrUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "TransparentDataEncryptionActivities_ListByConfiguration": {
+            "main": "./lib/actions/TransparentDataEncryptionActivities_ListByConfiguration.js",
+            "title": "Returns a database's transparent data encryption operation result.",
+            "description": "Returns a database's transparent data encryption operation result.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/TransparentDataEncryptionActivities_ListByConfiguration.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ElasticPoolActivities_ListByElasticPool": {
+            "main": "./lib/actions/ElasticPoolActivities_ListByElasticPool.js",
+            "title": "Returns elastic pool activities.",
+            "description": "Returns elastic pool activities.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ElasticPoolActivities_ListByElasticPool.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ElasticPoolDatabaseActivities_ListByElasticPool": {
+            "main": "./lib/actions/ElasticPoolDatabaseActivities_ListByElasticPool.js",
+            "title": "Returns activity on databases inside of an elastic pool.",
+            "description": "Returns activity on databases inside of an elastic pool.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ElasticPoolDatabaseActivities_ListByElasticPool.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
