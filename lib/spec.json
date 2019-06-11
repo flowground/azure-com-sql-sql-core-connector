@@ -4384,11 +4384,12 @@
                 "description": "Azure Active Directory OAuth2 Flow",
                 "type": "oauth2",
                 "flows": {
-                    "implicit": {
+                    "authorizationCode": {
                         "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
                         "scopes": {
                             "user_impersonation": "impersonate your user account"
-                        }
+                        },
+                        "tokenUrl": "https://login.microsoftonline.com/common/oauth2/token"
                     }
                 }
             }

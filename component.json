@@ -1,5 +1,5 @@
 {
-    "title": "Azure SQL Database",
+    "title": "Azure SQL Database (sql-sql.core)",
     "description": "Provides create, read, update and delete functionality for Azure SQL Database resources including recommendations and operations.",
     "docsUrl": "",
     "url": "https://api.apis.guru/v2/specs/azure.com/sql-sql.core/2014-04-01/swagger.json",
@@ -26,7 +26,7 @@
                 "label": "Custom Server URL",
                 "viewClass": "TextFieldView"
             },
-            "azure_auth": {
+            "oauth2": {
                 "label": "Azure Active Directory OAuth2 Flow",
                 "viewClass": "OAuthFieldView"
             }
@@ -34,7 +34,11 @@
         "oauth2": {
             "client_id": "{{OAUTH_CLIENT_ID}}",
             "client_secret": "{{OAUTH_CLIENT_SECRET}}",
-            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize",
+            "token_uri": "https://login.microsoftonline.com/common/oauth2/token",
+            "scopes": [
+                "user_impersonation"
+            ]
         }
     },
     "triggers": {
